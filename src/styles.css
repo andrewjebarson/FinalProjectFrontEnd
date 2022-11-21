@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+.button-filled{
+    border-radius: 20%;
+    background: linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
+    border:2px solid linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
+}
+
+.button-border{
+    border-radius: 20%;
+    background: white;
+    border:2px solid linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body{
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(to right bottom, #ccfbff, #b4e9ff, #b8d2ff, #d4b5f2, #ef96c5);
+}
+
+.container{
+    background-color: white;
+    margin: 40px;
+    width: 92vw;
+    height: 90vh;
+    border-radius: 1.2rem;
+    border:0.3rem solid white;
+}
+
+.logo h1{
+    color: #FF74B1;
+    font-weight:400;
+    font-size: 1.5rem;
+   
+}

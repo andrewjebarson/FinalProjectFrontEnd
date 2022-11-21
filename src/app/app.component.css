@@ -1,0 +1,18 @@
+.container{
+    background-color: white;
+    margin: 40px;
+    width: 92vw;
+    height: 90vh;
+    border-radius: 30px;
+    border:0.1rem solid white;
+}
+
+.logo h1{
+    color: #FF74B1;
+    font-weight:400;
+    font-size: 1.5rem;
+   
+}
+button{
+    cursor: pointer;
+}

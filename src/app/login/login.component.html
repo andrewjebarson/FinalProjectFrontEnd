@@ -1,0 +1,54 @@
+
+<div class="container">
+
+
+<div class="left-container">   
+ <div class="logo">
+<h1><b>TRAVELLY</b></h1>
+</div>   
+
+
+<div class="left-content">
+
+<h2>Welcome Back</h2>
+
+
+<img src="../../assets/g8.png" alt="pic">
+</div>
+</div>
+
+
+<div class="right-container">
+
+<div class="top-btn">
+    <button class="filled">
+        LOGIN
+    </button>
+
+    <button class="outer" (click)="goToRegister()">
+        REGISTER
+    </button>
+</div>
+
+ 
+
+<form #loginform = "ngForm" (ngSubmit)="validatelogin(loginform)">
+<div class="form-group">
+    
+ <div> 
+ <input type="text" class="input form-control" name="username" placeholder="Enter Username" name="username" #name1="ngModel" pattern="^[a-zA-Z0-9_-]{5,15}$" required [(ngModel)]="username">
+</div>
+<div *ngIf="name1.touched && name1.errors?.['required']">
+
+    <p class="alert alert-danger">Name is madantory</p>
+</div>
+<div>
+    <input type="text" class="input form-control" name="password" placeholder="Enter Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="password">
+</div>
+<input type="submit"  class="btn-primary" value="LOGIN">
+
+</div>
+</form>
+{{res}}
+
+</div>
