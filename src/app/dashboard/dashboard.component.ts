@@ -11,19 +11,22 @@ export class DashboardComponent implements OnInit {
 
   @Output()
   logoutEvent = new EventEmitter<string>();
+
+  flag:boolean=true;
   
 
   constructor(private utilService:UtilService,private router:Router) { }
 
   ngOnInit(): void {
-    if(!this.utilService.check()){
-      console.log(this.utilService.check())
-        this.router.navigate(["/error"])
+    if(this.utilService.getUser().roles=="User"){
+        this.flag=true;
+    }else if(this.utilService.getUser().roles=="Admin"){
+        this.flag=false;
     }
 
   }
 
-  logout(){
+  logout(s:String){
     this.utilService.clear();
     this.logoutEvent.emit("login");
   }
@@ -34,9 +37,7 @@ this.router.navigate(["/error"]);
 
 
 
-  regTrain(){
-    
-  }
+  
 
 
 

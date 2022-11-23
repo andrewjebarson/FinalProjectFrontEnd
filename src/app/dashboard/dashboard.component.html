@@ -1,16 +1,1 @@
-<div class="top">
-<div class="logo">
-    <h1><b>TRAVELLY</b></h1>
-</div>
-<div class="userIcon">
-    <h1><b>TRAVELLY</b></h1>
-</div>
-
-</div>
-
-
-
-
-<button (click)="logout()">Logout</button>
-<button (click)="error()">Error</button>
-<button (click)="regTrain()">Register Train</button>
+<app-user-view *ngIf="flag" (logoutEvent)="logout($event)"></app-user-view>

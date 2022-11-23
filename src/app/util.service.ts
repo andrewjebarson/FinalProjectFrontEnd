@@ -37,16 +37,16 @@ export class UtilService {
   }
 
 
-  addTrain(t:Details):Observable<any>{
-    return this.httpClient.post<any>("http://localhost:8082/addTrain",{"trainId":t.trainId,"password":user.password,"username":user.username,"mobileNo":user.mobileNo,"email":user.email,"roles":user.roles},
-    {observe: 'response' as 'body'})
-    .pipe(map(u => {
-         return u;
-    }));
+  // addTrain(t:Details):Observable<any>{
+  //   return this.httpClient.post<any>("http://localhost:8082/addTrain",{"trainId":t.trainId,"password":user.password,"username":user.username,"mobileNo":user.mobileNo,"email":user.email,"roles":user.roles},
+  //   {observe: 'response' as 'body'})
+  //   .pipe(map(u => {
+  //        return u;
+  //   }));
 
 
    
-  }
+  // }
 
 
 

@@ -1,0 +1,15 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    margin: 1.2rem;    
+    
+}
+
+h3{
+    display: inline;
+}
+.border{
+    border:1px solid black;
+    border-radius: 1.5rem;
+    padding: 1rem;
+}
