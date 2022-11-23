@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Login } from 'src/Login';
 import { User } from 'src/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Register } from 'src/Register';
+import { Details } from './TrainClasses/Details';
 
 
 @Injectable({
@@ -14,15 +15,43 @@ export class UtilService {
   constructor(private httpClient:HttpClient) { }
 
   validatelogin(login:Login):Observable<any>{
-    return this.httpClient.post<any>("http://localhost:8081/authenticate/",
-    {"username":login.username,"password":login.password},{responseType:"json"});
+    return this.httpClient.post<any>("http://localhost:8081/authenticate", {"username": login.username,"password":login.password},
+  {observe: 'response' as 'body'})
+  .pipe(map(user => {
+       return user;
+  }));
+
+    // return this.httpClient.post<any>("http://localhost:8081/authenticate",
+    // {"username":login.username,"password":login.password},{responseType:"json"});
   }
 
   addUser(user:Register):Observable<any>{
-    return this.httpClient.post<any>("http://localhost:8081/registerUser",
-    {"userid":user.userid,"password":user.password,"username":user.username,"mobileNo":user.mobileNo,"email":user.email,"roles":user.roles},{responseType:"json"});
+    return this.httpClient.post<any>("http://localhost:8081/registerUser",{"userid":user.userid,"password":user.password,"username":user.username,"mobileNo":user.mobileNo,"email":user.email,"roles":user.roles},
+    {observe: 'response' as 'body'})
+    .pipe(map(u => {
+         return u;
+    }));
 
+
+   
   }
+
+
+  addTrain(t:Details):Observable<any>{
+    return this.httpClient.post<any>("http://localhost:8082/addTrain",{"trainId":t.trainId,"password":user.password,"username":user.username,"mobileNo":user.mobileNo,"email":user.email,"roles":user.roles},
+    {observe: 'response' as 'body'})
+    .pipe(map(u => {
+         return u;
+    }));
+
+
+   
+  }
+
+
+
+
+
 
   setBearerToken(token: string) {
     sessionStorage.setItem('bearerToken', token);

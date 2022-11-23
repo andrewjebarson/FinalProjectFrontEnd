@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,32 +31,52 @@ loginEvent = new EventEmitter<string>();
 
   validatelogin(f:NgForm){
     this.utilService.validatelogin(new Login(this.username,this.password)).subscribe(
-
-
-{
-   next:(data)=>{console.log(data);
-
-    if(data=="false"){
-      this.res="Please enter correct details"
-    }else{
-      this.u=data.user;
-      this.utilService.setBearerToken(data.token.Authorization[0]);
+      
+        (data: HttpResponse<any>) => {
+          console.log(data);
+          this.u=data.body;
+          console.log(this.u.userid);
+          console.log(this.u.username);
+          
+          console.log(data.headers.get('Authorization'));
+      this.utilService.setBearerToken(data.headers.get('Authorization')??"");
 
       console.log(this.utilService.getBearerToken());
       
-      this.utilService.setUser(this.u);
-      console.log(this.utilService.getUser());
-      this.loginEvent.emit("dashboard");
+            this.utilService.setUser(this.u);
+            console.log(this.utilService.getUser());
+            this.loginEvent.emit("dashboard");
+
+        },
+        error => {
+         console.log(error);
+         this.res="Please enter correct details";
+        }
       
-    }
+// {
+//    next:(data)=>{console.log(data);
 
-   },
-   error:(err)=>{
-     console.log(err);
-     this.res="Please enter correct details"
-   }
+//     if(data=="false"){
+//       this.res="Please enter correct details"
+//     }else{
+//       this.u=data.user;
+//       this.utilService.setBearerToken(data.token.Authorization[0]);
 
- }
+//       console.log(this.utilService.getBearerToken());
+      
+//       this.utilService.setUser(this.u);
+//       console.log(this.utilService.getUser());
+//       this.loginEvent.emit("dashboard");
+      
+//     }
+
+//    },
+//    error:(err)=>{
+//      console.log(err);
+//      this.res="Please enter correct details"
+//    }
+
+//  }
 
 
       );
