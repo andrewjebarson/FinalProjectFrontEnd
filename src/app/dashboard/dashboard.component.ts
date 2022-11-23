@@ -34,5 +34,11 @@ this.router.navigate(["/error"]);
 
 
 
+  regTrain(){
+    
+  }
+
+
+
 
 }

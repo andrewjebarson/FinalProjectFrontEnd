@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -42,32 +43,55 @@ registerEvent = new EventEmitter<string>();
 console.log(this.u)
 
     this.utilService.addUser(this.u).subscribe(
+      (data: HttpResponse<any>) => {
+        console.log(data);
+        this.u=data.body;
+        console.log(this.u.userid);
+        console.log(this.u.username);
+        
+        console.log(data.headers.get('Authorization'));
+    this.utilService.setBearerToken(data.headers.get('Authorization')??"");
+
+    console.log(this.utilService.getBearerToken());
+    
+          this.utilService.setUser(this.u);
+          console.log(this.utilService.getUser());
+          this.registerEvent.emit("dashboard");
+
+      },
+      error => {
+       console.log(error);
+       this.res="Please enter correct details";
+      }
 
 
-{
-   next:(data)=>{console.log(data);
 
-    if(data=="false"){
-      this.res="Please enter correct details"
-    }else{
-      this.u=data.user;
-      console.log(this.u);
-      this.utilService.setBearerToken(data.token.Authorization[0]);
 
-      console.log(this.utilService.getBearerToken());
+
+// {
+//    next:(data)=>{console.log(data);
+
+//     if(data=="false"){
+//       this.res="Please enter correct details"
+//     }else{
+//       this.u=data.user;
+//       console.log(this.u);
+//       this.utilService.setBearerToken(data.token.Authorization[0]);
+
+//       console.log(this.utilService.getBearerToken());
       
 
-      this.registerEvent.emit("dashboard");
+//       this.registerEvent.emit("dashboard");
       
-    }
+//     }
 
-   },
-   error:(err)=>{
-     console.log(err);
-     this.res="Please enter correct details"
-   }
+//    },
+//    error:(err)=>{
+//      console.log(err);
+//      this.res="Please enter correct details"
+//    }
 
- }
+//  }
 
 
       );
