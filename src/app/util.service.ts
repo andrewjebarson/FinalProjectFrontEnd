@@ -128,6 +128,15 @@ export class UtilService {
 getSource():Observable<any>{
     return this.httpClient.get("http://localhost:8082/getSource");
 }
+getDestinations(s:string):Observable<any>{
+  return this.httpClient.get("http://localhost:8082/getDestination/"+s);
+}
+
+
+getTrains(from:string,to:string,date:Date){
+  return this.httpClient.get("http://localhost:8082/getTrainByStationAndDate/"+from+"/"+to+"/"+date.toISOString().replace('Z', '')+"+00:00");
+}
+
 
 
 

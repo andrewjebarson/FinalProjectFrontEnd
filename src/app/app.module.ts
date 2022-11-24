@@ -9,8 +9,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TokenErrorComponent } from './token-error/token-error.component';
-import { UserViewComponent } from './user-view/user-view.component';
-import { RouterComponent } from './router/router.component'
+import { UserViewComponent } from './UsersView/user-view/user-view.component';
+import { RouterComponent } from './router/router.component';
+import { BookingviewComponent } from './UsersView/bookingview/bookingview.component';
+import { UserDashboardComponent } from './UsersView/user-dashboard/user-dashboard.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RouterComponent } from './router/router.component'
     DashboardComponent,
     TokenErrorComponent,
     UserViewComponent,
-    RouterComponent
+    RouterComponent,
+    BookingviewComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -34,18 +34,27 @@
 
     <div class="book outer">
     
-        <select name="from" class="input" placeholder="FROM">
+        <select name="from" class="input" placeholder="FROM"  (change)="sourceChange($event)">
+            <option *ngFor="let s of source; let i = index" [value]="source[i]" >
+                {{source[i]}}
+            </option>
             
         </select>    
             <span class="right"></span>
-        <input type="text" class="input "  placeholder="TO"><span class="right"></span>
-        <input type="date" class="input" placeholder="DATE">
+            <select name="To" (change)="destChange($event)" class="input" placeholder="TO"  >
+                <option *ngFor="let d of destinations; let i = index" [value]="destinations[i]">
+                    {{destinations[i]}}
+                </option>
+                
+            </select>
+        <input type="date" class="input" placeholder="DATE" (change)="dateChange($event)">
     </div>
     <div class="pnr">
 
     </div>
    
-    <button class="filled">Search</button>
+    <button class="filled" (click)="search()">Search</button>
+    <h2 *ngIf="err">Please Fill </h2>
 </div>
 
 
