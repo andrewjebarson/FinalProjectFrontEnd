@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilService } from '../../util.service';
+import bookingRequest from '../bookingRequest';
+import searchRequest from '../searchRequest';
 
 @Component({
   selector: 'app-user-view',
@@ -8,8 +10,14 @@ import { UtilService } from '../../util.service';
   styleUrls: ['./user-view.component.css']
 })
 export class UserViewComponent implements OnInit {
+  // @Output()
+  // logoutEvent = new EventEmitter<String>();
+
   @Output()
-  logoutEvent = new EventEmitter<String>();
+  bookingView=new EventEmitter<searchRequest>();
+
+ @Output()
+ pnrView=new EventEmitter<number>();
 
 
   flag:boolean=true;
@@ -17,27 +25,28 @@ export class UserViewComponent implements OnInit {
   source:string[]=[];
   destinations:string[]=[];
   date:Date=new Date();
-  from:string="";
-  to:string="";
+
+  pnr:number=0;
+  fromOption:string="";
+  toOption:string="";
+  dateOption:any;
 
   constructor(private utilService:UtilService,private router:Router) { }
 
   ngOnInit(): void {
     if(!this.utilService.check()){
       console.log(this.utilService.check())
+      sessionStorage.clear();
         this.router.navigate(["/error"])
     }
 
+  
    this.utilService.getSource().subscribe({
     next:(data)=>{this.source=data;}
   });
   }
 
-  logout(){
-    this.utilService.clear();
-    this.router.navigate(["/login"]);
-
-  }
+  
 
   error(){
 this.router.navigate(["/error"]);
@@ -57,44 +66,55 @@ this.router.navigate(["/error"]);
   }
 
   sourceChange(e:any){
-    console.log(e.target.value);
+    console.log(`Ng Model Value ${this.fromOption}`);
+    
     this.utilService.getDestinations(e.target.value).subscribe({
       next:(data)=>{this.destinations=data;}
     });
-    this.from=e.target.value;
+    
 
 
   }
 
-  destChange(e:any){
-    this.to=e.target.value;
-  }
+  
 
   search(){
-    if(this.from==""||this.to==""||this.date.toString()==""){
-        console.log(this.from);
-        console.log(this.to);
+
+    if(this.flag){
+    if(this.date.toString()=="" || this.fromOption==""||this.toOption==""){
+       
+        console.log(this.fromOption);
+        console.log(this.toOption);
         console.log(this.date);
 
         this.err=true;
     }else{
-      this.utilService.getTrains(this.from,this.to,this.date).subscribe({
-        next:(data)=>{console.log(data)}
-      });
-    }
 
+     
+      this.bookingView.emit(new searchRequest(this.fromOption,this.toOption,this.date));
+      console.log("Going to search")
+     
+    }}
+    else{
+if(this.pnr==0){
+  this.err=true;
+
+}else{
+this.pnrView.emit(this.pnr);
+}
+
+
+    }
   }
 
   dateChange(e:any){
 
-    console.log(e.target.value);
-    this.date=new Date(e.target.value);
+    console.log(`Ng Model ${this.dateOption}`);
+    this.date=new Date(this.dateOption);
     console.log(this.date)
    
   }
 
-  regTrain(){
-    
-  }
+  
 
 }

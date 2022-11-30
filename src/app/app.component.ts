@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
  
   
   showPage(s:string){
+    console.log(s);
     this.page=s;
   }
 

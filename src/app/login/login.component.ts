@@ -30,21 +30,21 @@ loginEvent = new EventEmitter<string>();
   res:any;
 
   validatelogin(f:NgForm){
+    if(this.username!="" && this.password!="" ){
+
     this.utilService.validatelogin(new Login(this.username,this.password)).subscribe(
       
         (data: HttpResponse<any>) => {
           console.log(data);
           this.u=data.body;
-          console.log(this.u.userid);
-          console.log(this.u.username);
-          
-          console.log(data.headers.get('Authorization'));
+         
       this.utilService.setBearerToken(data.headers.get('Authorization')??"");
 
       console.log(this.utilService.getBearerToken());
       
             this.utilService.setUser(this.u);
             console.log(this.utilService.getUser());
+            console.log("GOing to dashboard");
             this.loginEvent.emit("dashboard");
 
         },
@@ -80,7 +80,9 @@ loginEvent = new EventEmitter<string>();
 
 
       );
-      
+    }else{
+      this.res="Please fill out the details"
+    }
     
   }
 

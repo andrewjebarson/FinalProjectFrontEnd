@@ -1,29 +1,13 @@
-<div class="top">
-    <div class="logo">
-        <h1><b>TRAVELLY</b></h1>
-    </div>
-    
-    <button (click)="logout()">Logout</button>
-    <button (click)="error()">Error</button>
-    <button (click)="regTrain()">Register Train</button>
-    <div class="userIcon">
-        <h1><span class="material-symbols-outlined">
-            account_circle
-            </span></h1>
-    </div>
-    
-    </div>
-    
 
     <div class="content">
     <div class="main">
         <span class="border">
-            <input type="radio" [defaultChecked]="true" (change)="change($event)" name="option" id="booking" value="booking" >
+            <input type="radio" class="form-check-input" [defaultChecked]="true" (change)="change($event)" name="option" id="booking" value="booking" >
             <h3>BOOK TRAIN TICKET</h3>
            
         </span>
         <span class="border">
-            <input type="radio" name="option" (change)="change($event)" id="pnr" value="pnr" >
+            <input type="radio" class="form-check-input" name="option" (change)="change($event)" id="pnr" value="pnr" >
             <h3>CHECK PNR STATUS</h3>
         </span>
 
@@ -32,25 +16,25 @@
     </div>
 
 
-    <div class="book outer">
+    <div *ngIf="flag" class="book outer">
     
-        <select name="from" class="input" placeholder="FROM"  (change)="sourceChange($event)">
+        <select name="from" class="input" placeholder="FROM" [(ngModel)]="fromOption" (change)="sourceChange($event)">
             <option *ngFor="let s of source; let i = index" [value]="source[i]" >
                 {{source[i]}}
             </option>
             
         </select>    
             <span class="right"></span>
-            <select name="To" (change)="destChange($event)" class="input" placeholder="TO"  >
+            <select name="To" class="input" [(ngModel)]="toOption" placeholder="TO"  >
                 <option *ngFor="let d of destinations; let i = index" [value]="destinations[i]">
                     {{destinations[i]}}
                 </option>
                 
             </select>
-        <input type="date" class="input" placeholder="DATE" (change)="dateChange($event)">
+        <input type="date" class="input" placeholder="DATE" [(ngModel)]="dateOption" (change)="dateChange($event)">
     </div>
-    <div class="pnr">
-
+    <div class="pnr" *ngIf="!flag">
+        <input type="number" class="text-input" [(ngModel)]="pnr">
     </div>
    
     <button class="filled" (click)="search()">Search</button>

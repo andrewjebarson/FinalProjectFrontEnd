@@ -1,0 +1,122 @@
+.round{
+    border-radius: 40%;
+    background-color: #C6BCE4;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0.8rem;
+}
+.one{
+    background-color: #FF74B1;
+}
+.two{
+    background-color: #FF74B1;   
+}
+.nav-top{
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.border{
+    border-bottom: 1px dotted black;
+    width: 20vw;
+}
+
+.train-detail{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 2rem;
+    border-radius: 1rem;
+    
+}
+
+.trainName{
+    background-color: #CCFBFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 1rem;
+
+}
+
+.fromTo{
+    padding: 2rem;
+    padding-bottom: 0.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.travelClass{
+    padding: 1rem;
+    color: white;
+    background-color: gray;
+}
+
+.passenger-details{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+   
+    align-content: space-around;
+    justify-items: center;
+align-items: center;
+}
+.passenger-details>span{
+    padding-left: 1rem;
+}
+
+.passenger-values{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: space-around;
+    justify-items: center;
+    align-items: center;
+    padding:1rem;
+}
+tr{
+    padding: 0.7rem;
+}
+td,th{
+    padding: 0rem 1rem;
+}
+.scrollable{
+    overflow: overlay;
+     height: 35vh;
+    margin-bottom: 3rem;}
+
+input{
+    padding:0.8rem;
+}
+.button{
+    color:gray;
+    cursor: pointer;
+}
+.Btn{
+    margin: 0.4rem;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: 1px solid black;
+    cursor: pointer;
+}
+.center{
+    text-align: center;}
+
+    .email{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:1rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: rgba(77, 0, 128, 0.678);
+        color:white;
+        width: 30rem;
+        text-align: center;
+    }

@@ -39,7 +39,11 @@
      <input type="text" class="input form-control" name="username" placeholder="Enter Username"  #name1="ngModel" pattern="^[a-zA-Z0-9_-]{5,15}$" required [(ngModel)]="username">
     </div>
     <div>
-        <input type="text" class="input form-control" name="password" placeholder="Enter Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="password">
+        <input type="password" class="input form-control" name="password" placeholder="Enter Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="password">
+    </div>
+
+    <div>
+        <input type="text" class="input form-control" name="conPassword" placeholder="Confirm Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="conPassword">
     </div>
 
     <div>

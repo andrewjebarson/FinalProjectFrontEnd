@@ -1,0 +1,25 @@
+
+<div class="all">
+  
+    <div class="container">
+        
+        <div class="choice">
+            <span class="material-symbols-rounded"> app_registration</span>
+            <div (click)='addtrain()'>Add Train</div>
+            <span class="material-symbols-rounded">update</span>
+            <div (click)='modifytrain()'>Modify  Train</div>
+            <span class="material-symbols-rounded">visibility</span>
+            <div (click)='viewtrain()'>View Train</div>
+            <div class="userIcon"
+                 (click)="logout()"><span class="material-symbols-outlined">
+                    logout
+                    </span> Logout
+        </div>
+        </div>
+    </div>  
+    <div class="view">
+        <app-addtrain *ngIf="page=='addtrain'"></app-addtrain> 
+        <app-modifytrain *ngIf="page=='modifytrain'"></app-modifytrain>
+        <app-viewtrain *ngIf="page=='viewtrain'"></app-viewtrain>
+    </div>  
+</div>

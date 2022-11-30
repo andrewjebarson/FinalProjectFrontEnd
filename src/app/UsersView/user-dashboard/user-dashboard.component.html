@@ -1,2 +1,21 @@
-<app-user-view ></app-user-view>
-<app-bookingview></app-bookingview>
+<div class="top">
+    <div class="logo">
+        <h1><b>TRAVELLY</b></h1>
+    </div>
+    <div class="userIcon">
+        <span (click)="goToProfile()" class="material-symbols-outlined profile">
+            account_circle
+            </span>
+            <button (click)="logout()"><span class="material-symbols-outlined">
+                logout
+                </span> Logout</button>
+    </div>
+</div>
+<app-user-view *ngIf="page=='view'" (bookingView)="goToBooking($event)"  (pnrView)="goToPnrView($event)"></app-user-view>
+<app-bookingview *ngIf="page=='bookingview'" [req]="req" (passengerEvent)="goToPassenger($event)"></app-bookingview>
+<app-passengerdetails *ngIf="page=='passengerdetails'" [bookReq]="bookReq" (goToPreview)="goToPreview($event)" (goBack)="goBack($event)"></app-passengerdetails>
+<app-userpreview *ngIf="page=='preview'" [bookReq]="bookReq"[order]="order" (goBack)="goBack($event)"></app-userpreview>
+<app-trainpayment *ngIf="page=='payment'" [order]="order.totalFare" (go)="goBack($event)"></app-trainpayment>
+<app-success *ngIf="page=='success'" [order]="order" [bookReq]="bookReq"></app-success>
+<app-pnr-view *ngIf="page=='pnrView'" [pnr]="pnr" ></app-pnr-view>
+<app-user-profile-dashboard *ngIf="page=='profileDash'"></app-user-profile-dashboard>

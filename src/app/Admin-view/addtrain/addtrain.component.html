@@ -1,0 +1,88 @@
+<div class="container"> 
+    <div class="item">
+        <input type="text" [(ngModel)]="trainId" placeholder="Train ID" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="text" [(ngModel)]="trainName" placeholder="Train Name" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="number" [(ngModel)]="basePrice" placeholder="Base price" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <button (click)="scheduleForm('addSchedule')" class="button">Schedule</button>    
+    </div>
+    <div class="item">
+        <button (click)="stationForm('addStation')" class="button">Station</button>
+    </div>
+    <div class="item">
+        <button (click)="registerTrain()" class="button">Submit</button>
+    </div>
+</div>
+
+<div class="container" *ngIf="add=='addSchedule'">   
+    <div class="item">
+        <input type="date" [(ngModel)]="departureDate" placeholder="Departure date" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="date" [(ngModel)]="arrivalDate" placeholder="Arrival Date" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="text" [(ngModel)]="fromStation" placeholder="From station" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="text" [(ngModel)]="toStation" placeholder="To station" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="number" [(ngModel)]="journeyHours" placeholder="Journey hours" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <button (click)="categoryForm('addCategory')" class="button">Category</button>
+    </div>
+    <div class="item">
+        <button (click)="registerSchedule()" class="button">Submit</button>
+    </div>
+</div>
+<div  class="container" *ngIf="add=='addStation'">
+    <div class="item">
+        <input type="text" [(ngModel)]="stationName" placeholder="Station Name"/>
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="number" [(ngModel)]="stopNo" placeholder="Stop no"/>
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <button (click)="registerStation()" class="button">Submit</button>
+    </div>
+</div>
+<div  class="container" *ngIf="do=='addCategory' ">       
+    <div class="item">
+        <input type="text" [(ngModel)]="categoryName" placeholder="Category Name"/>
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="number" [(ngModel)]="categoryPrice" placeholder="Category price" />
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <input type="number" [(ngModel)]="totalSeats " placeholder="Total Seats"/>
+        <span class="bar"></span>
+    </div>
+    <div class="item">
+        <button (click)="registerCategory()" class="button">Submit</button>
+        {{error}}
+    </div>
+</div>
+
+
+
+
+

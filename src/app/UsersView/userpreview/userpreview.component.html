@@ -1,0 +1,48 @@
+
+<div class="nav-top">
+    <span class="one round">1</span><span class="border"></span>
+    <span class="two round">2</span><span class="border"></span>
+    <span class="three round">3</span>
+</div>
+
+
+<div class="train-detail">
+    <div class="trainName">
+     <span>Train Name: {{bookReq.train.trainName}}</span>  
+       <span>Train ID: {{bookReq.train.trainId}}</span>  
+    </div>
+    <div class="fromTo">
+        <span>FROM : {{bookReq.schedule.fromStation}}</span><span class="border"></span>
+        <span>{{bookReq.schedule.journeyHours}} HRS</span><span class="border"></span>
+        <span>TO : {{bookReq.schedule.toStation}}</span>
+    </div>
+    <div class="fromTo">
+      <span class="travelClass"> CLASS : {{bookReq.category.categoryName}}</span>
+    </div>
+</div>
+<div class="passenger-details scrollable">
+    <span class="center">Passenger Details</span>
+    <table class="passenger-values">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Aadhaar Number</th>
+        </tr>
+        <tr  *ngFor="let p of order.passengerDetails">
+            <td>{{p.passengerName}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.aadhaarNo}}</td>
+
+        </tr>
+        
+       
+
+    </table>
+    <div class="email">
+        <span>Order Confirmation will be sent to :{{email}}</span>
+        <span> Total Fare :{{order.totalFare}}</span>
+    </div>
+    <span><button (click)="next()" class="Btn">Next</button>
+    <button (click)="back()" class="Btn">Go Back</button></span>
+
+</div>

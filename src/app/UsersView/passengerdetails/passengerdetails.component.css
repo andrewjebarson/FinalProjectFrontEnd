@@ -1,0 +1,93 @@
+.round{
+    border-radius: 40%;
+    background-color: #C6BCE4;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0.8rem;
+}
+.one{
+    background-color: #FF74B1;
+}
+
+.nav-top{
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.border{
+    border-bottom: 1px dotted black;
+    width: 20vw;
+}
+.train-detail{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 2rem;
+    border-radius: 1rem;
+    
+}
+
+.trainName{
+    background-color: #CCFBFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 1rem;
+
+}
+
+.fromTo{
+    padding: 2rem;
+    padding-bottom: 0.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.travelClass{
+    padding: 1rem;
+    color: white;
+    background-color: gray;
+}
+
+.passenger-details{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    padding-bottom: 0.5rem;
+}
+.passenger-details>span{
+    padding-left: 1rem;
+}
+.info{
+    background-color: rgb(235, 52, 52, 0.28);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding:1rem;
+}
+.passenger-values{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:1rem;
+}
+
+input{
+    padding:0.8rem;
+}
+.button{
+    color:gray;
+    cursor: pointer;
+}
+.Btn{
+    margin: 0.4rem;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: 1px solid black;
+    cursor: pointer;
+}
+.center{
+    text-align: center;}

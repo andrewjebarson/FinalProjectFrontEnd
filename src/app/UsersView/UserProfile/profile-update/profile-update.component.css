@@ -1,0 +1,16 @@
+.input{
+    border:none;
+    padding:0.8rem 1rem;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.Btn{
+    background-color: #7C50AD;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 1.5rem;
+    margin: 1rem;
+    cursor:pointer;
+}

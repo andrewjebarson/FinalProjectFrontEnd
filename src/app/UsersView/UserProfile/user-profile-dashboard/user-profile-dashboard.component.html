@@ -1,0 +1,8 @@
+<div class="nav">
+    <button (click)="updatePage()" class="Btn">Update Profile</button>
+    <button (click)="upcomingPage()" class="Btn">Upcoming</button>
+    <button (click)="goBack()" class="Btn">Go Back</button>
+</div>
+
+<app-profile-update *ngIf="page=='profile'"></app-profile-update>
+<app-upcoming *ngIf="page=='upcoming'"></app-upcoming>

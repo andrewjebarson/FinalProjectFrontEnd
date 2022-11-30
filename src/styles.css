@@ -1,16 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+
 .button-filled{
     border-radius: 20%;
     background: linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
     border:2px solid linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
+    cursor:pointer;
 }
 
 .button-border{
     border-radius: 20%;
     background: white;
     border:2px solid linear-gradient(90deg, rgba(163,201,226,1) 39%, rgba(150,24,247,1) 100%);
+    cursor:pointer;
 }
 *{
     margin: 0px;
@@ -31,9 +34,9 @@ body{
 
 .container{
     background-color: white;
-    margin: 40px;
-    width: 92vw;
+    margin: 40px;width: 92vw;
     height: 90vh;
+    
     border-radius: 1.2rem;
     border:0.3rem solid white;
 }
@@ -44,3 +47,24 @@ body{
     font-size: 1.5rem;
    
 }
+::-webkit-scrollbar {
+    width: 6px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 1rem;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 1rem;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

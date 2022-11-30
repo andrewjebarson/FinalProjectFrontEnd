@@ -1,1 +1,2 @@
-<app-user-view *ngIf="flag" (logoutEvent)="logout($event)"></app-user-view>
+<app-user-dashboard *ngIf="flag" ></app-user-dashboard>
+<app-adminview *ngIf="!flag"></app-adminview>

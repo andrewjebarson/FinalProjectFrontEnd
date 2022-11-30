@@ -1,1 +1,62 @@
-<p>bookingview works!</p>
+<div class="top-nav">
+  <span class="rounded">
+    From<br />
+    {{ req.from }} </span
+  ><span class="border"></span>
+
+  <span class="rounded">
+    Date<br />
+    {{ req.date.toISOString().split("T")[0] }} </span
+  ><span class="border"></span>
+
+  <span class="rounded">
+    To<br />
+    {{ req.to }}
+  </span>
+</div>
+
+<div class="scrollable" *ngIf="trainList.length!=0">
+  <div *ngFor="let t of trainList" class="container-list">
+    <span class="container-top">
+      <span class="train-left">
+        <h3>Train Name: {{ t.trainName }}</h3>
+        <h3>Train Id: {{ t.trainId }}</h3>
+      </span>
+
+      <span *ngFor="let sc of t.schedules" class="train-right">
+        
+        <span
+          *ngIf="
+            sc.departureDate.toString().split('T')[0] ==
+            req.date.toISOString().split('T')[0]
+          "
+        >
+        <span class="row">
+          <p>{{ sc.fromStation }}</p>
+          <span class="border"></span>
+          <p>{{ sc.journeyHours }}Hrs</p>
+          <span class="border"></span>
+          <p>{{ sc.toStation }}</p>
+        </span>
+      
+
+      <span class="row">
+        <span *ngFor="let s of sc.seats" class="category">
+          <p>Category : {{ s.categoryName }}</p>
+          <p>Price : {{ s.categoryPrice + t.basePrice }}</p>
+          <p>Seats Left : {{ s.totalSeats }}</p>
+          <button (click)="book(t, sc, s)" class="bookBtn">BOOK</button>
+        </span>
+      </span>
+    </span>
+</span>
+    </span>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="trainList.length==0" >
+
+<p>Sorry No Trains Available For Given Date :(</p>
+<img src="../../../assets/err_img.png" alt="No Trains Found">
+<button (click)="goBack()" class="bookBtn">GO BACK</button>
+</div>

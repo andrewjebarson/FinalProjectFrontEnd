@@ -1,0 +1,21 @@
+<div class="container">
+    <img src="../../../assets/success.png" alt="success">
+    <h3>Congratulations ! You have successfully booked  ticket</h3>
+    <p>Please carry ticket sent by TRAVELLY along with relevant photo id card while travelling</p>
+    <h4>PNR NO : {{order.orderId}}</h4>
+    <table>
+        <tr>
+            <th>Train No.</th>
+            <th>Date</th>
+            <th>No. of Passengers</th>
+            <th>Ticket Status</th>
+        </tr>
+        <tr>
+            <td>{{order.vechileId}}</td>
+            <td>{{order.travelDate.split("T")[0]}}</td>
+            <td>{{order.noOfSeats}}</td>
+            <td>{{order.status}}</td>
+        </tr>
+    </table>
+    <button (click)="goHome()" class="Btn">Go Back</button>
+</div>

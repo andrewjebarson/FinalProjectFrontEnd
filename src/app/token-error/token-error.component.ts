@@ -16,7 +16,8 @@ export class TokenErrorComponent implements OnInit {
 
   goToLogin(){
     this.utilService.clear();
-    this.router.navigate([""]);
+    this.router.navigate(["/login"]);
+    
   }
 
 }

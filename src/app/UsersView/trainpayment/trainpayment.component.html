@@ -1,0 +1,61 @@
+<div class="nav-top">
+    <span class="one round">1</span><span class="border"></span>
+    <span class="two round">2</span><span class="border"></span>
+    <span class="three round">3</span>
+</div>
+
+<div class="payment-container">
+    <div class="left">
+       <span class="box">
+    <input type="radio" name="option" (change)="change($event)" [defaultChecked]="true" id="upi" value="upi" >
+    UPI <br/></span><span class="box">
+    <input type="radio" name="option" (change)="change($event)" id="cc" value="cc" >
+    Credit Card <br/></span>
+    </div>
+    <div class="right">
+        <div class="form-group" *ngIf="value=='upi'">
+        <form #upiForm = "ngForm" (ngSubmit)="payUpi()">
+             <div> 
+             <input type="text" class="input form-control" name="upiId" placeholder="Enter UPI Id" name="username" #name1="ngModel" required [(ngModel)]="upiId">
+            </div>
+            <div *ngIf="name1.touched && name1.errors?.['required']">
+            
+                <p class="alert alert-danger">UPI ID is madantory</p>
+            </div>
+            <input type="submit"  class="btn-primary" value="Pay {{order}}">
+            
+           {{err}}
+            </form>
+        </div>
+        <div class="form-group" *ngIf="value=='cc'">
+            <form #ccForm = "ngForm" (ngSubmit)="payCC()">
+                 <div> 
+                 <input type="text" class="input form-control" name="ccNumber" placeholder="Enter Credit Card Number" name="username" #name1="ngModel" required [(ngModel)]="ccNum">
+                 
+                </div>
+                <div *ngIf="name1.touched && name1.errors?.['required']">
+                
+                    <p class="alert alert-danger">CC ID is madantory</p>
+                </div>
+
+                <div> 
+                     <input type="date" class="input form-control" name="ccDate" placeholder="Enter Credit Card Number" name="date" #name2="ngModel" required [(ngModel)]="ccDate">
+                    <input type="number" class="input form-control" name="ccCvv" placeholder="Enter Credit Card Number" name="cvv" #name3="ngModel" required [(ngModel)]="ccCvv">
+                   </div>
+                   <div *ngIf="name2.touched && name2.errors?.['required']">
+                   
+                       <p class="alert alert-danger">Expiry Date is madantory</p>
+                   </div>
+                   <div *ngIf="name3.touched && name3.errors?.['required']">
+                   
+                    <p class="alert alert-danger">CVV is madantory</p>
+                </div>
+
+                <input type="submit"  class="btn-primary" value="Pay {{order}}">
+                {{err}}
+
+               
+                </form>
+            </div>
+    </div>
+</div>

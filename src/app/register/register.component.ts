@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   username:string="";
   password:string="";
+  conPassword:string="";
   mobileNo:string="";
   email:string="";
 
@@ -34,6 +35,8 @@ registerEvent = new EventEmitter<string>();
   res:any;
 
   register(f:NgForm){
+
+    if(this.username!="" && this.email!="" && this.password!="" &&this.mobileNo!="" && this.password==this.conPassword){
 
     this.u.username=this.username;
     this.u.email=this.email;
@@ -95,7 +98,9 @@ console.log(this.u)
 
 
       );
-      
+    }else{
+      this.res="Please Fill Out the details correctly";
+    }
     
   }
 

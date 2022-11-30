@@ -1,0 +1,69 @@
+<div  class="container1"  *ngIf="!flag">
+    <div>
+        <div class="item">
+            <input type="text" [(ngModel)]="trainId" placeholder="Train ID" />
+            <span class="bar"></span>
+        </div>
+        <button (click)="checkId()"  class="button">View</button>
+    </div>
+</div>
+{{errors}}
+<div *ngIf="flag"> 
+    
+    <div class="container">
+        <div class="item">Train Id:{{d.trainId}}</div>
+        <div class="item">Train Name:{{d.trainName}}</div>
+        <div class="item">Base Price:{{d.basePrice}}</div>
+        <div class="item">
+            <button (click)="scheduleForm('addSchedule')" class="button">Schedule</button>    
+        </div>
+        <div class="item">
+            <button (click)="stationForm('addStation')" class="button">Station</button>
+        </div>  
+    </div>
+    <div>            
+        <div *ngIf="add=='addSchedule'">         
+            <table class="table">
+                <tr><th>Departure Date</th>
+                    <th>Arrival Date</th>
+                    <th>From Station</th>
+                    <th>To Station</th>
+                    <th>Journey Hours</th>
+                </tr>
+                                    
+                <tr *ngFor="let sc of d.schedules">
+                    <td>{{sc.departureDate}}</td>
+                    <td>{{sc.arrivalDate}}</td>
+                    <td>{{sc.fromStation}}</td>
+                    <td>{{sc.toStation}}</td>
+                    <td>{{sc.journeyHours}}</td>
+                </tr>                     
+            </table>
+            <table class="table">
+                <span *ngFor="let sc of d.schedules">
+                    <tr><th>Category Name</th>
+                        <th>Category Price</th>
+                        <th>TotalSeats</th>
+                    </tr> 
+                    <tr *ngFor="let ca of sc.seats">
+                        <td>{{ca.categoryName}}</td>
+                        <td>{{ca.categoryPrice}}</td>
+                        <td>{{ca.totalSeats}}</td>
+                    </tr>
+                </span>
+            </table>   
+        </div>
+        <div *ngIf="add=='addStation'">
+            <table class="table">
+                <tr><th>Station Name</th>
+                    <th>Stop No</th>                           
+                </tr>               
+                <tr *ngFor="let st of d.stations">
+                    <td>{{st.stationName}}</td>
+                    <td>{{st.stopNo}}</td>                          
+                </tr>                     
+            </table>   
+          
+        </div>    
+    </div>     
+</div>

@@ -1,0 +1,43 @@
+
+<div class="nav-top">
+    <span class="one round">1</span><span class="border"></span>
+    <span class="two round">2</span><span class="border"></span>
+    <span class="three round">3</span>
+</div>
+
+
+<div class="train-detail">
+    <div class="trainName">
+     <span>Train Name: {{bookReq.train.trainName}}</span>  
+       <span>Train ID: {{bookReq.train.trainId}}</span>  
+    </div>
+    <div class="fromTo">
+        <span>FROM : {{bookReq.train.schedules[0].fromStation}}</span><span class="border"></span>
+        <span>{{bookReq.train.schedules[0].journeyHours}} HRS</span><span class="border"></span>
+        <span>TO : {{bookReq.train.schedules[0].toStation}}</span>
+    </div>
+    <div class="fromTo">
+      <span class="travelClass"> CLASS : {{bookReq.category.categoryName}}</span>
+    </div>
+</div>
+
+<div class="passenger-details">
+    <div class="info">
+        Note: 
+        1.Please submit full name of the passengers instead of initials.<br/>
+        2.The ID card will be required during journey.<br/>
+    </div>
+    <span>Passenger Details</span>
+    <div class="passenger-values">
+        <input type="text" placeholder="Name" [(ngModel)]="passengerName">
+        <input type="number" placeholder="Age" [(ngModel)]="passengerAge">
+        <input type="text" placeholder="Aadhar number" [(ngModel)]="passengerAadhar">
+        <span class="material-symbols-outlined button" (click)="add()">
+            person_add
+            </span>
+{{err}}
+    </div>
+    <div class="center"><button (click)="next()" class="Btn">Next</button>
+    <button (click)="back()" class="Btn">Go Back</button></div>
+
+</div>
