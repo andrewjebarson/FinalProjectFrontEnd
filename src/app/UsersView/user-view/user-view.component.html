@@ -17,14 +17,16 @@
 
 
     <div *ngIf="flag" class="book outer">
-    
-        <select name="from" class="input" placeholder="FROM" [(ngModel)]="fromOption" (change)="sourceChange($event)">
-            <option *ngFor="let s of source; let i = index" [value]="source[i]" >
+    <label for="from">FROM : </label>
+        <select name="from" class="input"  [(ngModel)]="fromOption" (change)="sourceChange($event)">
+            
+            <option *ngFor="let s of source; let i = index"  [value]="source[i]" >
                 {{source[i]}}
             </option>
             
         </select>    
             <span class="right"></span>
+            <label for="To">TO : </label>
             <select name="To" class="input" [(ngModel)]="toOption" placeholder="TO"  >
                 <option *ngFor="let d of destinations; let i = index" [value]="destinations[i]">
                     {{destinations[i]}}

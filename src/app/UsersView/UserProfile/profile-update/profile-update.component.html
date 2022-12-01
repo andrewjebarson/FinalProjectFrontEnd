@@ -1,39 +1,35 @@
 
 
-<div *ngIf="flag">
-    
+<div class="all" *ngIf="flag" > 
     <form #updateform = "ngForm" (ngSubmit)="update(updateform)">
-        <div class="form-group">
-
-    <div> 
-        <input type="text" class="input form-control" name="username" placeholder="Enter Username"  #name1="ngModel" pattern="^[a-zA-Z0-9_-]{5,15}$" required [(ngModel)]="username">
-       </div>
-       <div class="form-group">
-        <input type="password" class="input form-control" placeholder="Enter New Password" #password1 ="ngModel"  
-        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" 
-        name="password" [(ngModel)]="password" >
-        <div *ngIf="password1.touched && password1.errors?.['required']">
-            <p class=" alert alert-danger">Password is Mandatory</p>
-        
+        <div class="container">
+            <div class="form-group">
+                <div> 
+                    <input type="text" class="input form-control" name="username" placeholder="Enter Username"  #name1="ngModel" pattern="^[a-zA-Z0-9_-]{5,15}$" required [(ngModel)]="username">
+                </div>
+            <div class="form-group">
+                <input type="password" class="input form-control" placeholder="Enter New Password" #password1 ="ngModel"  
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" 
+                name="password" [(ngModel)]="password" >
+                    <div *ngIf="password1.touched && password1.errors?.['required']">
+                        <p class=" alert alert-danger">Password is Mandatory</p>
+                    
+                    </div>
+                    <div *ngIf="password1.touched && password1.errors?.['pattern']">
+                        <p class=" alert alert-danger">password must be 8 characters with atleast one uppercase,lowercase letters numbers and one special characters</p>
+                    
+                    </div> 
+            </div>
+            <div>
+            <input type="text" class="input form-control" name="mobileNo" pattern="^[0-9]{10}$" placeholder="Enter your mobile no" required required [(ngModel)]="mobileNo">
+            </div>
+            <div>
+            <input type="email" class="input form-control" name="email" placeholder="Enter your email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required required [(ngModel)]="email">
+            </div>
+                <input type="submit"  class="Btn" value="REGISTER">
+            </div>
         </div>
-        <div *ngIf="password1.touched && password1.errors?.['pattern']">
-            <p class=" alert alert-danger">password must be 8 characters with atleast one uppercase,lowercase letters numbers and one special characters</p>
-        
-        </div>
-     
-    </div>
-   
-       <div>
-           <input type="text" class="input form-control" name="mobileNo" pattern="^[0-9]{10}$" placeholder="Enter your mobile no" required required [(ngModel)]="mobileNo">
-       </div>
-       <div>
-           <input type="email" class="input form-control" name="email" placeholder="Enter your email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required required [(ngModel)]="email">
-       </div>
-   
-       <input type="submit"  class="Btn" value="REGISTER">
-       
-       </div>
-       </form>
+    </form>
        
        
 </div>

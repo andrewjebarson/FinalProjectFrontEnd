@@ -16,6 +16,7 @@ export class BookingviewComponent implements OnInit {
   req:any;
   @Output()
   passengerEvent=new EventEmitter<bookingRequest>();
+  datecheck:boolean=false;
   
   trainList:any;
   constructor(private utilService:UtilService,private router:Router) { }
@@ -31,6 +32,10 @@ export class BookingviewComponent implements OnInit {
         console.log(this.trainList);
       }
     });
+let d=new Date();
+    if(this.req.date.getTime()<d.getTime()){
+      this.datecheck=true;
+    }
   
   }
 

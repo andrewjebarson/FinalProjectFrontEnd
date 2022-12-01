@@ -1,10 +1,9 @@
 <div class="scrollable">
-<div class="container" *ngFor="let o of orderList">
-    <h3>{{o.orderId}}</h3>
-    <h3>{{o.vechileName}}</h3>
-
-    <h3>{{o.totalSeats}}</h3>
-    <h3>{{o.departueDate}}</h3>
-    <h3>{{o.status}}</h3>
-</div>
+    <div class="container" *ngFor="let o of orderList">
+        <div class="item">Order Id:{{o.orderId}}</div>
+        <div class="item">Vehicle Name:{{o.vechileName}}</div>
+        <div class="item">Total Seats:{{o.noOfSeats}}</div>
+        <div class="item">Departure Date:{{o.travelDate}}</div>
+        <div class="item">Status:{{o.status}}</div>
+    </div>
 </div>

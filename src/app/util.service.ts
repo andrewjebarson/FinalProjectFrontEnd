@@ -91,7 +91,7 @@ export class UtilService {
     return this.httpClient.post('http://localhost:8081/validate', {}, {
       headers: new HttpHeaders().set('Authorization', token)
     })}else{
-      return this.httpClient.post('http://localhost:8081/validate', {}, {
+      return this.httpClient.post('http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazo:8081/validate', {}, {
      
       headers: new HttpHeaders().set('Authorization', "")
       })
@@ -129,15 +129,15 @@ export class UtilService {
 //=========================================================<USER>==================================
 
 getSource():Observable<any>{
-    return this.httpClient.get("http://localhost:8082/getSource");
+    return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getSource");
 }
 getDestinations(s:string):Observable<any>{
-  return this.httpClient.get("http://localhost:8082/getDestination/"+s);
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getDestination/"+s);
 }
 
 
 getTrains(from:string,to:string,date:Date){
-  return this.httpClient.get("http://localhost:8082/getTrainByStationAndDate/"+from+"/"+to+"/"+date.toISOString().replace('Z', '')+"+00:00");
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getTrainByStationAndDate/"+from+"/"+to+"/"+date.toISOString().replace('Z', '')+"+00:00");
 }
 
 // =================================================<Orders>====================
@@ -146,7 +146,7 @@ getTrains(from:string,to:string,date:Date){
 setOrder(order:Orders):Observable<any>{
   
   console.log(JSON.stringify(order));
-  return this.httpClient.post("http://localhost:8084/saveOrder",
+  return this.httpClient.post("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/saveOrder",
   
   {"orderId":null,
   "vechileId":order.vechileId,
@@ -180,7 +180,7 @@ reduceSeats(order:Orders,catId:any,train:Detail):Observable<any>{
   }
 
   console.log(JSON.stringify(train));
-  return this.httpClient.put("http://localhost:8082/updateTrain",
+  return this.httpClient.put("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/updateTrain",
   {"trainId":train.trainId,"trainName":train.trainName,"basePrice":train.basePrice,"schedules":train.schedules,"stations":train.stations}
   ,{responseType:"json"});
 
@@ -189,23 +189,23 @@ reduceSeats(order:Orders,catId:any,train:Detail):Observable<any>{
 
 
 getOrder(pnr:any):Observable<any>{
-  return this.httpClient.get("http://localhost:8084/getOrderById/"+pnr);
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/getOrderById/"+pnr);
 
 }
 
 
 getTrainById(id:any){
-  return this.httpClient.get("http://localhost:8082/getTrainById/"+id);
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getTrainById/"+id);
 }
 
 
 
 sendMail(to:string,orderId:any,total:any){
-  return this.httpClient.get("http://localhost:8084/sendOrder/"+to+"/"+orderId+"/"+total);
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/sendOrder/"+to+"/"+orderId+"/"+total);
 }
 
 modifyUser(user:User):Observable<any>{
-  return this.httpClient.put<any>("http://localhost:8081/update",{
+  return this.httpClient.put<any>("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8081/update",{
     "userid":this.getUser().userid,"username":user.username,"password":user.password,"mobileNo":user.mobileNo,
     "email":user.email,"roles":user.roles,
     "accountNonExpired":true,
@@ -217,7 +217,7 @@ modifyUser(user:User):Observable<any>{
 }
 
 getUpcoming():Observable<any>{
-  return this.httpClient.get("http://localhost:8084/getOrdersByUserId/"+this.getUser().userid);
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/getOrdersByUserId/"+this.getUser().userid);
 }
 
 

@@ -92,6 +92,10 @@
  th{
     background: linear-gradient(to left, #12c2e9,#c471ed);
  }
+
+ .tablemargin{
+     padding:1rem;
+ }
   
 
 

@@ -72,6 +72,8 @@ export class AddtrainComponent implements OnInit {
     });
   }
   registerSchedule() {
+    let d=new Date();
+    if(new Date(this.departureDate).getTime()>d.getTime() && new Date(this.arrivalDate).getTime()>d.getTime()){
     let sc = new Schedule(
       null,
       new Date(this.departureDate).toISOString().replace('Z', '') + '+00:00',
@@ -88,7 +90,9 @@ export class AddtrainComponent implements OnInit {
     this.fromStation = '';
     this.toStation = '';
     this.journeyHours = '';
-    this.add = '';
+    this.add = '';}else{
+      this.error="Please Enter Correct Date";
+    }
   }
   registerStation() {
     let st = new Station(null, this.stationName, this.stopNo);
@@ -98,7 +102,7 @@ export class AddtrainComponent implements OnInit {
     this.add = '';
   }
   registerCategory() {
-    if(this.categoryName=="General" || this.categoryName=="3AC" || this.categoryName=="2AC" || this.categoryName=="1AC"){
+    if(this.categoryName=="General" || this.categoryName=="3AC" || this.categoryName=="2AC" || this.categoryName=="SL"){
     let se = new Seat(
       null,
       this.categoryName,

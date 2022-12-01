@@ -14,3 +14,19 @@
     margin: 1rem;
     cursor:pointer;
 }
+.container{
+    width: 65%;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 1rem rgba(68, 66, 66, 0.1);  
+    height: auto; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.all{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

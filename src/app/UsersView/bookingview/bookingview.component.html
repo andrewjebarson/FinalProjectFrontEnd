@@ -55,8 +55,11 @@
 </div>
 
 <div class="not-found" *ngIf="trainList.length==0" >
+<span>
+<p *ngIf="!datecheck">Sorry No Trains Available For Given Date :(</p>
+<p *ngIf="datecheck">The date you selected is in the past !!</p>
+<br/>
+<button (click)="goBack()" class="bookBtn">GO BACK</button></span>
 
-<p>Sorry No Trains Available For Given Date :(</p>
 <img src="../../../assets/err_img.png" alt="No Trains Found">
-<button (click)="goBack()" class="bookBtn">GO BACK</button>
 </div>

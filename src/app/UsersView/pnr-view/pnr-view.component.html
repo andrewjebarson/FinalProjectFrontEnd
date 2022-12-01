@@ -1,16 +1,15 @@
-<div class="top-nav container" *ngIf="order!=null">
-  <div class="top"><span> Train Name :{{train.trainName}} <br/>
-     Category :{{order.category}}</span>
-    <span>{{order.travelDate.split("T")[0]}} <br/>
-{{order.totalFare}}
-    </span></div>  
-
-    <div class="places">
-      From :  {{order.sourcePlace}}
-       To : {{order.destinationPlace}}
+<div class="all" *ngIf="order!=null">
+    <div class="container">
+        <div class="item">Train Name:{{train.trainName}}</div>
+        <div class="item">Category :{{order.category}}</div>
+        <div class="item">Travel Date:{{order.travelDate.split("T")[0]}}</div>
+        <div class="item">Total Fare:{{order.totalFare}}</div>
+        <div class="item">From :{{order.sourcePlace}}</div>
+        <div class="item">To :{{order.destinationPlace}}</div>
     </div>
-    <span>Passenger Details</span>
-    <table class="passenger-values">
+    
+    
+    <table class="table">
         <tr>
             <th>Name</th>
             <th>Status</th>

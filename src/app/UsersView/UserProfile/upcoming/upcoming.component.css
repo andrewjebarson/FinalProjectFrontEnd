@@ -1,5 +1,24 @@
 .container{
-    height:20vh;
+    width: 95%;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 1rem rgba(68, 66, 66, 0.1);  
+    overflow: overlay;
+    height: auto; 
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+.item{
+    flex: 1 1 100px;  
+    font-size: .7 rem;
+    position: relative;
+    display: grid;
+    align-items: baseline;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    font-weight:normal;
 }
 .scrollable{
     overflow: overlay;

@@ -74,3 +74,6 @@ img{
     cursor:pointer;
     
 }
+label{
+    margin-left: 0.3rem;
+}

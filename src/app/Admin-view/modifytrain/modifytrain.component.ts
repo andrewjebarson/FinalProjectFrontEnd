@@ -64,6 +64,8 @@ export class ModifytrainComponent implements OnInit {
     );
   }
 updateDetail(){
+    this.add = '';
+    this.do = '';
     console.log(this.add);
     let d=new Detail(this.d.trainId,this.trainName,this.basePrice,this.scheduleList,this.stationList);
     this.adminutilService.modifyTrain(d).subscribe({
@@ -80,29 +82,47 @@ updateDetail(){
  
   }
   updateSchedule(){
+    let d=new Date();
+    if(new Date(this.departureDate).getTime()>d.getTime() && new Date(this.arrivalDate).getTime()>d.getTime()){
+   
     let sc=new Schedule(null,new Date(this.departureDate),new Date(this.arrivalDate),this.fromStation,this.toStation,this.journeyHours,this.seatList);
     this.scheduleList.push(sc);
+    this.seatList=[];
     this.departureDate="";
     this.arrivalDate="";
     this.fromStation="";
     this.toStation="";
     this.journeyHours="";
-
+    this.add='';
+    }else{
+      this.error="Please Enter Correct Date";
+    }
   }
   updateStation(){
     let st=new Station(null,this.stationName,this.stopNo);
     this.stationList.push(st);
     this.stationName="";
     this.stopNo="";
+    this.add='';
 
   }
   updateCategory(){ 
-    let se=new Seat(null,this.categoryName,this.categoryPrice,this.totalSeats);
-    this.seatList.push(se);
-    this.categoryName="";
-    this.categoryPrice=""
-    this.totalSeats="";
-    
+    console.log(this.categoryName)
+    if(this.categoryName=="General" || this.categoryName=="3AC" || this.categoryName=="2AC" || this.categoryName=="SL"){
+      let se = new Seat(
+        null,
+        this.categoryName,
+        this.categoryPrice,
+        this.totalSeats
+      );
+      this.seatList.push(se);
+      this.categoryName = '';
+      this.categoryPrice = '';
+      this.totalSeats = '';
+      this.do = '';}
+      else{
+        this.error="Please Enter Correct Category Name";
+      }
   }
   stationForm(e:any){
     this.add=e;
