@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   @Output()
 loginEvent = new EventEmitter<string>();
 
-  u:User=new User(0,"","","","",""); 
+  user:User=new User(0,"","","","",""); 
   
   
   res:any;
@@ -32,24 +32,24 @@ loginEvent = new EventEmitter<string>();
   validatelogin(f:NgForm){
     if(this.username!="" && this.password!="" ){
 
-    this.utilService.validatelogin(new Login(this.username,this.password)).subscribe(
+    this.utilService.validateLogin(new Login(this.username,this.password)).subscribe(
       
         (data: HttpResponse<any>) => {
-          console.log(data);
-          this.u=data.body;
+          //console.log(data);
+          this.user=data.body;
          
       this.utilService.setBearerToken(data.headers.get('Authorization')??"");
 
-      console.log(this.utilService.getBearerToken());
+      //console.log(this.utilService.getBearerToken());
       
-            this.utilService.setUser(this.u);
-            console.log(this.utilService.getUser());
-            console.log("GOing to dashboard");
+            this.utilService.setUser(this.user);
+            //console.log(this.utilService.getUser());
+            //console.log("GOing to dashboard");
             this.loginEvent.emit("dashboard");
 
         },
         error => {
-         console.log(error);
+         //console.log(error);
          this.res="Please enter correct details";
         }
       
