@@ -16,7 +16,7 @@ export class UtilService {
 
   constructor(private httpClient:HttpClient) { }
 
-  validatelogin(login:Login):Observable<any>{
+  validateLogin(login:Login):Observable<any>{
     return this.httpClient.post<any>("http://localhost:8081/authenticate", {"username": login.username,"password":login.password},
   {observe: 'response' as 'body'})
   .pipe(map(u => {
@@ -131,8 +131,8 @@ export class UtilService {
 getSource():Observable<any>{
     return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getSource");
 }
-getDestinations(s:string):Observable<any>{
-  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getDestination/"+s);
+getDestinations(src:string):Observable<any>{
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8082/getDestination/"+src);
 }
 
 
@@ -169,12 +169,12 @@ setOrder(order:Orders):Observable<any>{
 }
 
 reduceSeats(order:Orders,catId:any,train:Detail):Observable<any>{
-  for(let s of train.schedules){
-    for(let c of s.seats){
-        if(c.categoryId==catId){
+  for(let schedule of train.schedules){
+    for(let category of s.seats){
+        if(category.categoryId==catId){
 
-          c.totalSeats-=order.noOfSeats;
-          console.log(c.totalSeats);
+          category.totalSeats-=order.noOfSeats;
+          console.log(category.totalSeats);
         }
     }
   }
@@ -200,8 +200,8 @@ getTrainById(id:any){
 
 
 
-sendMail(to:string,orderId:any,total:any){
-  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/sendOrder/"+to+"/"+orderId+"/"+total);
+sendMail(to:string,orderId:any,totalFare:any){
+  return this.httpClient.get("http://appse-loadb-10me6iltasbr6-2dd9d25a977b8c29.elb.us-east-1.amazonaws.com:8084/sendOrder/"+to+"/"+orderId+"/"+totalFare);
 }
 
 modifyUser(user:User):Observable<any>{
