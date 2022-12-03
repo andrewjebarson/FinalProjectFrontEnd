@@ -43,7 +43,11 @@
     <p class="alert alert-danger">Name is madantory</p>
 </div>
 <div>
-    <input type="password" class="input form-control" name="password" placeholder="Enter Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="password">
+    <input type="password" class="input form-control" name="password" placeholder="Enter Password" #pass1="ngModel" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" required [(ngModel)]="password">
+</div>
+  <div *ngIf="pass1.touched && pass1.errors?.['required']">
+
+    <p class="alert alert-danger">Password is madantory</p>
 </div>
 <input type="submit"  class="btn-primary" value="LOGIN">
 
